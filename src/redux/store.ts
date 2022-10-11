@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from './slices/auth.slice'
+import moviesReducer from './slices/movies.slice'
+
 import { useDispatch, useSelector } from 'react-redux'
 import type { TypedUseSelectorHook } from 'react-redux'
 
@@ -7,6 +9,7 @@ import type { TypedUseSelectorHook } from 'react-redux'
 export const store = configureStore({
     reducer: {
         auth: authReducer,
+        movies: moviesReducer
     },
 })
 

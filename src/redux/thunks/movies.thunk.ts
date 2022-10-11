@@ -1,0 +1,56 @@
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { movieClient } from '../../api/movieClient';
+
+
+interface Payload {
+    query: string;
+}
+export const getMovies = createAsyncThunk(
+    'auth/login',
+    async (payload: Payload) => {
+        if (payload.query.length > 0) {
+            const { data } = await movieClient.get('/search/movie', {
+                params: {
+                    query: payload.query
+                }
+            })
+            return data ? data : null;
+        }else{
+            const { data } = await movieClient.get('/movie/popular')
+           
+            return data ? data : null;
+        }
+            
+    }
+        
+)
+
+export interface RootObject {
+ page:          number;
+ results:       Result[];
+ total_pages:   number;
+ total_results: number;
+}
+
+export interface Result {
+ adult:             boolean;
+ backdrop_path:     string;
+ genre_ids:         number[];
+ id:                number;
+ original_language: OriginalLanguage;
+ original_title:    string;
+ overview:          string;
+ popularity:        number;
+ poster_path:       string;
+ release_date:      Date;
+ title:             string;
+ video:             boolean;
+ vote_average:      number;
+ vote_count:        number;
+}
+
+export enum OriginalLanguage {
+ En = "en",
+ Fr = "fr",
+ Ja = "ja",
+}
