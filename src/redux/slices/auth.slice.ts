@@ -5,12 +5,14 @@ import { login } from '../thunks/auth.thunk';
 export interface RootObject {
     token: string;
     isAuthenticated: boolean;
+    isError: boolean;
 }
 
 
 const initialState: RootObject = {
     token: '',
-    isAuthenticated: true,
+    isAuthenticated: false,
+    isError: false,
 }
 
 export const authslice = createSlice({
@@ -30,6 +32,7 @@ export const authslice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(login.fulfilled, (state, { payload }) => {
+            
             state.token = payload.token;
             state.isAuthenticated = true;
         })

@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react'
+import { Login } from '../components/Login/Login'
+import { autoLogin } from '../redux/slices/auth.slice'
 import { useAppDispatch } from '../redux/store'
-import { login } from '../redux/thunks/auth.thunk'
 
 export const LoginScreen = () => {
     const dispatch = useAppDispatch()
 
-    // useEffect(() => {
-    //     dispatch(login({ email: 'eve.holt@reqres.in', password: 'cityslicka' }))
-    // }, [])
+    useEffect(() => {
+       dispatch(autoLogin())
+     }, [])
 
     return (
-        <div>LoginScreen</div>
+        <div className='bg-violet-700 w-full h-screen flex justify-center items-center'>
+            <Login />
+        </div>
     )
 }

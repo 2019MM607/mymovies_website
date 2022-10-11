@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
             email: payload.email,
             password: payload.password,
         })
-        //localStorage.removeItem('token')
+        localStorage.removeItem('token')
         localStorage.setItem('token', data.token)
         return data ? data : null;
     }

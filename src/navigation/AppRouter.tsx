@@ -15,10 +15,6 @@ import { PublicRoute } from './PublicRoute'
 export const AppRouter = () => {
     const dispatch = useAppDispatch()
 
-    useEffect(() => {
-        dispatch(autoLogin())
-    }, [])
-
     return (
         <BrowserRouter>
             <Routes>
