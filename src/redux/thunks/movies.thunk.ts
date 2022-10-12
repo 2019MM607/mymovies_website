@@ -6,7 +6,7 @@ interface Payload {
     query: string;
 }
 export const getMovies = createAsyncThunk(
-    'auth/login',
+    'get/movies',
     async (payload: Payload) => {
         if (payload.query.length > 0) {
             const { data } = await movieClient.get('/search/movie', {
