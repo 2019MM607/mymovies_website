@@ -20,12 +20,11 @@ export const AppRouter = () => {
             <Routes>
                 <Route path="/login" element={<PublicRoute> <LoginScreen /></PublicRoute>} />
 
-                <Route path="/" element={<PrivateRoute><HomeScreen /></PrivateRoute>}>
-                    <Route index element={<PrivateRoute><HomeScreen /></PrivateRoute>} />
+                    <Route path="/" element={<PrivateRoute><HomeScreen /></PrivateRoute>} />
                     <Route path="/details/:id" element={<PrivateRoute><DetailScreen /></PrivateRoute>} />
-                    <Route path="favorites" element={<PrivateRoute><FavoriteScreen /></PrivateRoute>} />
-                </Route>
-                <Route path='*' element={<NotFound />} />
+                    <Route path="/favorites" element={<PrivateRoute><FavoriteScreen /></PrivateRoute>} />
+                    <Route path='*' element={ <PrivateRoute><NotFound /></PrivateRoute> } />
+               
             </Routes>
         </BrowserRouter>
     )
