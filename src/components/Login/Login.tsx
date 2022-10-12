@@ -19,8 +19,11 @@ export const Login = () => {
         }
     })
   return (
-    <div className='bg-white p-2 rounded-lg animate__animated animate__flipInY'>
-        <h1 className='text-violet-700 font-semibold text-lg'>Login</h1>
+    <div className='bg-white p-2 rounded-lg animate__animated animate__flipInY flex flex-col items-center'>
+        <div className=' shadow-2xl   w-16 h-16 rounded-full flex justify-center items-center  '>
+            <span className=' text-violet-700 p1 text-lg font-bold'>MW</span>
+        </div>
+        <h1 className='text-violet-700 font-semibold text-lg mt-10'>Login</h1>
         <form className='' onSubmit={formik.handleSubmit} >
             <div className='m-5  p-1 flex justify-end items-center'>
                 <label htmlFor="email" className='text-violet-700 mr-2'>Email: </label>
