@@ -1,7 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useNavigation, useRoutes } from 'react-router-dom'
 import { Result } from '../../redux/thunks/movies.thunk'
-import { FaStar } from 'react-icons/fa';
+
 
 
 interface IProps {
@@ -18,7 +18,7 @@ export const MovieList = ({movies} : IProps) => {
             <div key={movie?.id} className='flex flex-col  cursor-pointer w-auto  justify-start items-center  '  onClick={()=> navigate(`/details/${movie?.id}`)}>
                 <img src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`} alt={movie?.title} className='w-60 h-80 rounded-lg shadow-lg' />
                 <p className='text-gray-200 font-regular text-lg text-center'>{movie?.title}</p>
-                <p  className='text-gray-200 font-regular text-sm bg-violet-700 p-1 rounded-full w-8 h-8 text-center'>{movie?.vote_average}</p>
+                <p  className='text-gray-200 font-regular text-sm bg-violet-700 p-1 rounded-full w-fit text-center'>{movie?.vote_average}</p>
                 
             </div>
         ))
