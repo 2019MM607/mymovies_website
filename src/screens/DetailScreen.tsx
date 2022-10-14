@@ -1,11 +1,13 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import { LoadAnimation } from '../components/animation/LoadAnimation';
-import { CastList } from '../components/Details/CastList';
-import { Detail } from '../components/Details/Details';
-import { RelatedList } from '../components/Details/RelatedList';
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { FaArrowLeft } from "react-icons/fa";
+
 import { Details, useMovieInfo } from '../hooks/useMovieInfo';
-import { Result } from '../hooks/usePopularMovies';
+import { RelatedList } from '../components/Details/RelatedList';
+import { Detail } from '../components/Details/Details';
+import { CastList } from '../components/Details/CastList';
+import { LoadAnimation } from '../components/animation/LoadAnimation';
+import animationData from '../../public/49799-the-panda-eats-popcorn.json';
 
 export const DetailScreen = () => {
     const {id} = useParams<{ id: string }>()
@@ -15,17 +17,21 @@ export const DetailScreen = () => {
     React.useLayoutEffect(() => {
       getMovieInfo()
       window.scrollTo(0, 0)
-      console.log(loading)
     }, [id])
     
 
     return (
         <>
         {
-            loading ? <div className='w-full h-screen bg-slate-900 flex items-center justify-center'><LoadAnimation /></div>  : 
+            loading ? <div className='w-full h-screen bg-slate-900 flex items-center justify-center'><LoadAnimation animationData={animationData} /></div>  : 
             <div className='bg-slate-900'>
+                <div className='p-2  bg-violet-900 backdrop-brightness-200 w-fit ml-5 rounded-full sticky left-0 top-0' >
+                    <Link to='/' className=''>
+                        <FaArrowLeft className='text-white' />  
+                    </Link>
+                </div>
 
-                <div className='w-full flex justify-center '>
+                <div className='w-full flex justify-center'>
                     <Detail details={details as Details} />
                 </div>
 

@@ -1,7 +1,7 @@
 import React from 'react'
+
 import { Cast } from '../../hooks/useMovieInfo'
 import { ListTitle } from '../utils/ListTitle'
-
 interface IProps {
     cast: Cast[]
 }

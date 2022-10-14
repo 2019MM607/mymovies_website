@@ -1,10 +1,13 @@
-import { useFormik } from 'formik'
 import React from 'react'
+import { useFormik } from 'formik'
+
 import { useAppDispatch } from '../../redux/store'
 import { login } from '../../redux/thunks/auth.thunk'
 
+
 export const Login = () => {
     const dispatch = useAppDispatch()
+    const [isError, setIsError] = React.useState(false)
 
     const formik = useFormik({
         initialValues:{
@@ -12,14 +15,18 @@ export const Login = () => {
             password: ''
         },
         onSubmit: ()=>{
-            dispatch(login({ email: formik.values.email, password: formik.values.password }))
-            formik.values.email = ''
-            formik.values.password = ''
+            console.log(formik.values)
+                if (formik.values.email === 'eve.holt@reqres.in' || formik.values.password === 'cytislicka') {
+                    dispatch(login({ email: formik.values.email, password: formik.values.password }))
+                }
+                formik.values.email = ''
+                formik.values.password = ''
+                setIsError(true)
+            }
 
-        }
     })
   return (
-    <div className='bg-white p-2 rounded-lg animate__animated animate__flipInY flex flex-col items-center'>
+    <div className={`bg-white p-2 rounded-lg animate__animated animate__flipInY flex flex-col items-center ${isError && 'animate__shakeX'}`}>
         <div className=' shadow-2xl   w-16 h-16 rounded-full flex justify-center items-center  '>
             <span className=' text-violet-700 p1 text-lg font-bold'>MW</span>
         </div>

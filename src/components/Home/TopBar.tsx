@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik'
+
 import { useAppDispatch } from '../../redux/store'
 import { getMovies } from '../../redux/thunks/movies.thunk'
-
 
 export const TopBar = () => {
 

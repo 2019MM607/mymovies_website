@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { login } from '../thunks/auth.thunk';
 
+
+import { login } from '../thunks/auth.thunk';
 export interface RootObject {
     token: string;
     isAuthenticated: boolean;

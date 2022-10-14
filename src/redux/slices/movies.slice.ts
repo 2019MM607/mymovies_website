@@ -3,7 +3,7 @@ import { getMovies, Result } from '../thunks/movies.thunk';
 
 
 export interface RootObject {
-    movies : Result[]
+    movies: Result[]
 }
 
 
@@ -24,7 +24,7 @@ export const moviesSlice = createSlice({
     },
 })
 
-// Action creators are generated for each case reducer function
+
 
 
 export default moviesSlice.reducer

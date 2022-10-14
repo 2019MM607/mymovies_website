@@ -12,7 +12,6 @@ export const HomeScreen = () => {
 
     React.useEffect(() => {
         dispatch(getMovies({query: ''}))
-        console.log('entro');
     }, [])
  
     return (

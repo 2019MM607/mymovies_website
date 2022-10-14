@@ -1,7 +1,7 @@
 import React from 'react'
+
 import { movieClient } from '../api/movieClient'
 import { Result } from '../redux/thunks/movies.thunk'
-
 
 export const useMovieInfo = (id: string) => {
     const [details, setDetails] = React.useState<Details>()

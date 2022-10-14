@@ -1,6 +1,6 @@
 import React from 'react'
-import { movieClient } from '../api/movieClient'
 
+import { movieClient } from '../api/movieClient'
 export const usePopularMovies = (query : string = '') => {
   const [movies, setMovies] = React.useState<Result[]>([])
   const [isLoading, setIsLoading] = React.useState<boolean>(true)

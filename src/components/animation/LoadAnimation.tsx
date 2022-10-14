@@ -1,8 +1,10 @@
 import React from 'react'
 import { LottieOptions, useLottie } from 'lottie-react';
-import animationData from '../../../public/49799-the-panda-eats-popcorn.json';
 
-export const LoadAnimation = () => {
+interface IProps {
+    animationData: LottieOptions['animationData']
+}
+export const LoadAnimation = ({animationData} : IProps) => {
     const Options: LottieOptions = {
         loop: true,
         autoplay: true,
@@ -12,8 +14,10 @@ export const LoadAnimation = () => {
     }
      const { View } = useLottie(Options);
   return (
-        <>
-            {View}
-        </>
+        
+    <div className='' >
+        {View}
+    </div>
+        
   )
 }

@@ -1,11 +1,24 @@
 import React from 'react'
-import { Details } from '../../hooks/useMovieInfo'
-import { Result } from '../../hooks/usePopularMovies'
+import { Link } from 'react-router-dom';
+import { FaStar, FaHeart } from "react-icons/fa";
 
+import { Details } from '../../hooks/useMovieInfo'
+import { isFavoriteItem, toggleFavoriteItem } from '../../helpers/verifyFavorite';
 interface IProps {
     details : Details
 }
 export const Detail = ({details} : IProps) => {
+    const [isFavorite, setIsFavorite] = React.useState(false)
+
+    React.useEffect(() => {
+        const isFav = isFavoriteItem(details?.id)
+        setIsFavorite(isFav)
+    }, [])
+
+    const handleFavorite = () => {
+       toggleFavoriteItem(details, !isFavorite)
+    }
+
   return (
     <div className='w-full md:w-1/2 flex flex-col md:flex-row items-center' >
 
@@ -27,8 +40,23 @@ export const Detail = ({details} : IProps) => {
                 </ul>
             </div>
             <p className='text-white font-thin text-sm text-center mt-10' >{ details?.overview }</p>
-            
 
+            <div className=' flex mt-2 gap-2' >
+                <p className='text-white font-bold text-sm text-center' >{ details?.vote_average.toFixed(2) }</p>
+                <FaStar className='text-violet-700' />
+            </div>
+
+            <div className=' w-full mt-5 flex justify-around items-center gap-2 cursor-pointer' onClick={()=> setIsFavorite(!isFavorite)}>
+               <FaHeart 
+                className={isFavorite ? 'text-violet-700' : 'text-gray-500' } 
+                onClick={handleFavorite}
+               />
+               
+               <Link to='/favorites' className='text-gray-400 hover:text-violet-700'>
+                Go to favorites
+               </Link>
+            </div>
+            
         </div>
        
     </div>
