@@ -15,7 +15,7 @@ export const Detail = ({details} : IProps) => {
 
         <div className='w-full flex flex-col justify-center items-center'>
             <h1 className='text-md md:text-lg font-bold text-white'>{details?.title}</h1>
-            <p className='text-sm md:text-md text-white'>{details?.release_date}</p>
+            <p className='text-sm md:text-md text-white'>{details?.release_date.toString()}</p>
 
             <div className='flex justify-center items-center flex-wrap'>
                 <ul className='flex'>
