@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { LoadAnimation } from '../components/animation/LoadAnimation';
 import { CastList } from '../components/Details/CastList';
 import { Detail } from '../components/Details/Details';
 import { RelatedList } from '../components/Details/RelatedList';
@@ -21,7 +22,7 @@ export const DetailScreen = () => {
     return (
         <>
         {
-            loading ? <div className='text-white flex justify-center items-center bg-slate-900 text-2xl w-full h-screen'>Loading...</div> : 
+            loading ? <div className='w-full h-screen bg-slate-900 flex items-center justify-center'><LoadAnimation /></div>  : 
             <div className='bg-slate-900'>
 
                 <div className='w-full flex justify-center '>
