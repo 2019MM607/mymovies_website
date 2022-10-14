@@ -32,7 +32,7 @@ export const authslice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(login.fulfilled, (state, { payload }) => {
-            
+
             state.token = payload?.token;
             state.isAuthenticated = true;
         })

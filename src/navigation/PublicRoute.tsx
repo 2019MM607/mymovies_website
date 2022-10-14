@@ -10,5 +10,5 @@ interface IProps {
 export const PublicRoute = ({ children }: IProps) => {
 
   const auth = useAppSelector((state: RootState) => state.auth)
-  return auth.isAuthenticated ? <Navigate to="/" /> : children
+  return auth.isAuthenticated ? <Navigate to="/" /> : <>{children}</>
 }
