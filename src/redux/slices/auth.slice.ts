@@ -1,45 +1,40 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-
-import { login } from '../thunks/auth.thunk';
+import { login } from "../thunks/auth.thunk";
 export interface RootObject {
-    token: string;
-    isAuthenticated: boolean;
-    isError: boolean;
+  token: string;
+  isAuthenticated: boolean;
+  isError: boolean;
 }
-
 
 const initialState: RootObject = {
-    token: '',
-    isAuthenticated: false,
-    isError: false,
-}
+  token: "",
+  isAuthenticated: false,
+  isError: false,
+};
 
 export const authslice = createSlice({
-    name: 'auth',
-    initialState,
-    reducers: {
-        autoLogin: (state) => {
-            if (localStorage.getItem('token')) {
-                state.token = localStorage.getItem('token') || '';
-                state.isAuthenticated = true;
-            } else {
-                state.token = '';
-                state.isAuthenticated = false;
-            }
-
-        }
+  name: "auth",
+  initialState,
+  reducers: {
+    autoLogin: (state) => {
+      if (localStorage.getItem("token")) {
+        state.token = localStorage.getItem("token") || "";
+        state.isAuthenticated = true;
+      } else {
+        state.token = "";
+        state.isAuthenticated = false;
+      }
     },
-    extraReducers: (builder) => {
-        builder.addCase(login.fulfilled, (state, { payload }) => {
+  },
+  extraReducers: (builder) => {
+    builder.addCase(login.fulfilled, (state, { payload }) => {
+      state.token = payload?.token;
+      state.isAuthenticated = true;
+    });
+  },
+});
 
-            state.token = payload?.token;
-            state.isAuthenticated = true;
-        })
-    },
-})
+export const { autoLogin } = authslice.actions;
 
-// Action creators are generated for each case reducer function
-export const { autoLogin } = authslice.actions
-
-export default authslice.reducer
+export default authslice.reducer;

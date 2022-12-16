@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const authClient = axios.create({
-    baseURL: "https://reqres.in/api/login",
-})
+  baseURL: import.meta.env.VITE_API_AUTH,
+});
