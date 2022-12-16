@@ -12,6 +12,7 @@ José Reinaldo Martínez
 - Tailwind
 - Axios
 - Formik  
+- MUI
 
 ## Instalation
 ```
@@ -20,6 +21,7 @@ after you clone this repo
 npm install  
 npm run dev
 ```  
+- There is already an env file with the variables
 
 ## Login  
 
