@@ -20,9 +20,11 @@ export const HomeScreen = () => {
         {movies.length > 0 ? (
           <MovieList movies={movies} />
         ) : (
-          <h1 className="text-white">no hay</h1>
+          <h1 className="text-white">There are not movies yet</h1>
         )}
       </div>
     </div>
   );
 };
+
+
