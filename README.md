@@ -30,3 +30,6 @@ You have to use this user to login, as the test says:
 - email: eve.holt@reqres.in  
 - password: cytislicka
 
+## Deploy
+https://heroic-kataifi-441807.netlify.app
+
